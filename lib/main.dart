@@ -1,7 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_animation/screens/Description.dart';
+import 'package:flutter_animation/utils/responsive.dart';
 
-void main(){
+void main() {
   runApp(MyApp());
 }
 
@@ -11,6 +12,7 @@ class MyApp extends StatelessWidget {
     return MaterialApp(
       title: "Flutter Animation",
       home: Description(),
+      navigatorKey: globalKey,
     );
   }
 }
