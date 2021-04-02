@@ -6,9 +6,12 @@ void main(){
 }
 
 class MyApp extends StatelessWidget {
+  final GlobalKey<NavigatorState> key = GlobalKey<NavigatorState>();
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
+      
+      debugShowCheckedModeBanner: false,
       title: "Flutter Animation",
       home: HomeScreen(),
     );

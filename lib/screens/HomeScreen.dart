@@ -8,8 +8,20 @@ class HomeScreen extends StatefulWidget {
 class _HomeScreenState extends State<HomeScreen> {
   @override
   Widget build(BuildContext context) {
-    return Container(
-      
+    return Row(
+      children: [
+        Container(
+          color: Colors.white,
+          child: Column(
+            children: [
+              Text("MK",
+              
+              )
+            ],
+          ),
+        ),
+        Container(),
+      ],
     );
   }
 }
