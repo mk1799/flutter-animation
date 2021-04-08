@@ -17,7 +17,7 @@ class MyApp extends StatelessWidget {
       debugShowCheckedModeBanner: false,
       title: "Flutter Animation",
       navigatorKey: globalKey,
-      home: Description(),
+      home: HomeScreen(),
     );
   }
 }

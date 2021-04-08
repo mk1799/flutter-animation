@@ -1,7 +1,7 @@
 class CardModel {
   String tag;
   String lable;
-  String price;
+  int price;
   int percentage;
   CardModel({
     this.tag,

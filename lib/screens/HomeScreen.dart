@@ -13,9 +13,8 @@ class HomeScreen extends StatefulWidget {
 }
 
 class _HomeScreenState extends State<HomeScreen> {
-
   List<Widget> _children;
-    List<String> _list = ["CAMPAIGNS", "ARTISTS", "EVENTS", "GRANTS"];
+  List<String> _list = ["CAMPAIGNS", "ARTISTS", "EVENTS", "GRANTS"];
 
   List<GlobalKey> _keys = [
     GlobalKey(),
@@ -29,26 +28,28 @@ class _HomeScreenState extends State<HomeScreen> {
   void initState() {
     // TODO: implement initState
     super.initState();
-    _children=[
+    _children = [
       Screen1("1"),
       Screen1("2"),
       Screen1("3"),
       Screen1("dat 4"),
     ];
   }
-   void indexChecked(int i) {
-    if ( checkIndex == i) return;
+
+  void indexChecked(int i) {
+    if (checkIndex == i) return;
 
     setState(() {
-       checkIndex= i;
+      checkIndex = i;
       // calcuteCheckOffset();
       // addAnimation();
     });
   }
+
   @override
   Widget build(BuildContext context) {
     return SafeArea(
-          child: Scaffold(
+      child: Scaffold(
         backgroundColor: Colors.white,
         body: Container(
           child: Row(
@@ -75,20 +76,17 @@ class _HomeScreenState extends State<HomeScreen> {
 }
 
 class LeftWidget extends StatefulWidget {
-
-int index;
- List<String> list;
- List<GlobalKey> keys;
- Function ontabTap;
- LeftWidget({this.keys,this.list,this.index,this.ontabTap});
+  int index;
+  List<String> list;
+  List<GlobalKey> keys;
+  Function ontabTap;
+  LeftWidget({this.keys, this.list, this.index, this.ontabTap});
 
   @override
   _LeftWidgetState createState() => _LeftWidgetState();
 }
 
 class _LeftWidgetState extends State<LeftWidget> with TickerProviderStateMixin {
-
-
   Offset checkedPositionOffset = Offset(0, 0);
   Offset lastCheckOffset = Offset(0, 0);
 
@@ -109,14 +107,13 @@ class _LeftWidgetState extends State<LeftWidget> with TickerProviderStateMixin {
 
   void calcuteCheckOffset() {
     lastCheckOffset = checkedPositionOffset;
-    RenderBox renderBox =  widget.keys[ widget.index].currentContext.findRenderObject();
+    RenderBox renderBox =
+        widget.keys[widget.index].currentContext.findRenderObject();
     Offset widgetOffset = renderBox.localToGlobal(Offset(10, 0));
     Size widgetSise = renderBox.size;
     checkedPositionOffset = Offset(widgetOffset.dx + widgetSise.width,
         widgetOffset.dy + widgetSise.height);
   }
-
-  
 
   @override
   Widget build(BuildContext context) {
@@ -126,7 +123,7 @@ class _LeftWidgetState extends State<LeftWidget> with TickerProviderStateMixin {
           Container(
             width: getSize(60),
             decoration: BoxDecoration(
-              color: Colors.white,
+              color: Colors.white10,
               // borderRadius: BorderRadius.circular(30),
             ),
             child: Column(
@@ -146,7 +143,7 @@ class _LeftWidgetState extends State<LeftWidget> with TickerProviderStateMixin {
     );
   }
 
-  List<Widget> _buildList() { 
+  List<Widget> _buildList() {
     List<Widget> _widget_list = [];
 
     _widget_list.add(Padding(
@@ -161,7 +158,7 @@ class _LeftWidgetState extends State<LeftWidget> with TickerProviderStateMixin {
     _widget_list.add(SizedBox(
       height: getSize(100),
     ));
-    for (int i = 0; i <  widget.list.length; i++) {
+    for (int i = 0; i < widget.list.length; i++) {
       _widget_list.add(Expanded(
         child: GestureDetector(
             onTap: () {
@@ -172,7 +169,7 @@ class _LeftWidgetState extends State<LeftWidget> with TickerProviderStateMixin {
               decoration: BoxDecoration(
                   border: Border(
                       left: BorderSide(
-                          color: ( widget.index == i)
+                          color: (widget.index == i)
                               ? greenColor
                               : Colors.transparent,
                           width: 4))),
@@ -180,9 +177,9 @@ class _LeftWidgetState extends State<LeftWidget> with TickerProviderStateMixin {
               child: Align(
                 alignment: Alignment.center,
                 child: VerticalText(
-                     widget.list[i],
-                     widget.keys[i],
-                     widget.index == i &&
+                    widget.list[i],
+                    widget.keys[i],
+                    widget.index == i &&
                         (_animationController != null &&
                             _animationController.isCompleted)),
               ),
@@ -202,8 +199,6 @@ class _LeftWidgetState extends State<LeftWidget> with TickerProviderStateMixin {
     ));
     return _widget_list;
   }
-
- 
 
   void addAnimation() {
     _animationController =

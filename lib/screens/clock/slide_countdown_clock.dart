@@ -38,6 +38,10 @@ class SlideCountdownClock extends StatefulWidget {
   /// Whether the widget should show another division for days.
   final bool shouldShowDays;
 
+  //width and height of clock
+  final double width;
+  final double height;
+
   SlideCountdownClock({
     Key key,
     @required this.duration,
@@ -45,6 +49,8 @@ class SlideCountdownClock extends StatefulWidget {
       fontSize: 30,
       color: Colors.black,
     ),
+    this.width = 70,
+    this.height = 70,
     this.separatorTextStyle,
     this.decoration,
     this.tightLabel: false,
@@ -212,8 +218,8 @@ class SlideCountdownClockState extends State<SlideCountdownClock> {
             Column(
               children: [
                 Container(
-                  width: getSize(70),
-                  height: getSize(70),
+                  width: widget.width,
+                  height:widget.height,
                   decoration: widget.decoration,
                   padding: widget.tightLabel
                       ? EdgeInsets.zero
@@ -228,11 +234,13 @@ class SlideCountdownClockState extends State<SlideCountdownClock> {
                     textStyle: widget.textStyle,
                   ),
                 ),
-                SizedBox(height:getSize(8)),
-                Text(id,style: getRegularStyle(),)
+                SizedBox(height: getSize(8)),
+                Text(
+                  id,
+                  style: getRegularStyle(),
+                )
               ],
             ),
-            
           ],
         ),
       ],
