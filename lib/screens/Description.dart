@@ -159,6 +159,8 @@ class _DescriptionState extends State<Description> {
                   height: getSize(8),
                 ),
                 SlideCountdownClock(
+                  width: getSize(70),
+                  height: getSize(70),
                   duration: Duration(days: 20, minutes: 1000),
                   slideDirection: SlideDirection.Up,
                   separator: ":",
