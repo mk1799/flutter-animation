@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'dart:math' as math;
 
 import 'package:flutter/scheduler.dart';
+import 'package:hexcolor/hexcolor.dart';
 
 class HomePage extends StatefulWidget {
   @override
@@ -228,7 +229,7 @@ class VerticalText extends StatelessWidget {
       child: Text(
         name,
         style: TextStyle(
-          color: checked ? Color(0xff98162d) : Colors.white,
+          color: checked ? HexColor("#228c60"): Colors.white,
           fontSize: 16,
         ),
       ),

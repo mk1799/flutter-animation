@@ -5,6 +5,8 @@ import 'package:flutter_animation/utils/responsive.dart';
 import 'package:flutter_animation/utils/style.dart';
 import 'dart:math';
 
+import 'package:hexcolor/hexcolor.dart';
+
 class HomeScreen extends StatefulWidget {
   @override
   _HomeScreenState createState() => _HomeScreenState();
@@ -81,7 +83,8 @@ class _LeftWidgetState extends State<LeftWidget> with TickerProviderStateMixin {
           Container(
             width: getSize(70),
             decoration: BoxDecoration(
-              color: Color(0xffED305A),
+              // color: Color(0xffED305A),
+              color: HexColor("#228c60"),
               borderRadius: BorderRadius.circular(30),
             ),
             child: Column(
@@ -100,7 +103,7 @@ class _LeftWidgetState extends State<LeftWidget> with TickerProviderStateMixin {
     );
   }
 
-  List<Widget> _buildList() {
+  List<Widget> _buildList() { 
     List<Widget> _widget_list = [];
 
     _widget_list.add(Padding(
