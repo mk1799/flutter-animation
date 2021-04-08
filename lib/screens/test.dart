@@ -2,11 +2,7 @@ import 'package:flutter/material.dart';
 import 'dart:math' as math;
 
 import 'package:flutter/scheduler.dart';
-<<<<<<< HEAD
-import 'package:hexcolor/hexcolor.dart';
-=======
 import 'package:flutter_animation/utils/responsive.dart';
->>>>>>> 43a4e25fcb5fe037c54308300e4f3c2aa52b7ae2
 
 class HomePage extends StatefulWidget {
   @override
