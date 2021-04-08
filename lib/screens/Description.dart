@@ -68,7 +68,7 @@ class _DescriptionState extends State<Description> {
         children: [
           getBackGroundImg(),
           Container(
-            margin: EdgeInsets.only(top: getSize(180)),
+            margin: EdgeInsets.only(top: getSize(180), right: getSize(50)),
             child: Column(
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
@@ -86,29 +86,31 @@ class _DescriptionState extends State<Description> {
     );
   }
 
-  Container getAbout(BuildContext context) {
-    return Container(
-      width: MediaQuery.of(context).size.width,
-      padding:
-          EdgeInsets.symmetric(vertical: getSize(15), horizontal: getSize(30)),
-      child: Column(
-        mainAxisSize: MainAxisSize.min,
-        crossAxisAlignment: CrossAxisAlignment.start,
-        children: [
-          Text(
-            "ABOUT".toUpperCase(),
-            style: getBoldStyle()
-                .copyWith(fontSize: getSize(20), fontWeight: FontWeight.w400),
-          ),
-          SizedBox(
-            height: getSize(20),
-          ),
-          Text(
-            "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book Lorem Ipsum is simply dummy text of the printing and typesetting industry.",
-            textAlign: TextAlign.justify,
-            style: getRegularStyle().copyWith(fontSize: getSize(14)),
-          ),
-        ],
+  getAbout(BuildContext context) {
+    return Expanded(
+      child: Container(
+        width: MediaQuery.of(context).size.width,
+        padding: EdgeInsets.symmetric(
+            vertical: getSize(15), horizontal: getSize(30)),
+        child: Column(
+          mainAxisSize: MainAxisSize.min,
+          crossAxisAlignment: CrossAxisAlignment.start,
+          children: [
+            Text(
+              "ABOUT".toUpperCase(),
+              style: getBoldStyle()
+                  .copyWith(fontSize: getSize(20), fontWeight: FontWeight.w400),
+            ),
+            SizedBox(
+              height: getSize(20),
+            ),
+            Text(
+              "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book Lorem Ipsum is simply dummy text of the printing and typesetting industry.",
+              textAlign: TextAlign.justify,
+              style: getRegularStyle().copyWith(fontSize: getSize(14)),
+            ),
+          ],
+        ),
       ),
     );
   }
@@ -116,12 +118,10 @@ class _DescriptionState extends State<Description> {
   getCard() {
     return Hero(
       tag: widget.cardModel.lable,
-          child: Material(
+      child: Material(
         elevation: 15.0,
         child: Container(
           color: Colors.white,
-          width: getSize(380),
-          
           child: Padding(
             padding: EdgeInsets.all(
               getSize(30),
@@ -151,7 +151,8 @@ class _DescriptionState extends State<Description> {
                         TextSpan(
                           text: ".",
                           style: TextStyle(
-                              color: HexColor("#f09516"), fontSize: getSize(35)),
+                              color: HexColor("#f09516"),
+                              fontSize: getSize(35)),
                         )
                       ]),
                 ),
