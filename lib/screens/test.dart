@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'dart:math' as math;
 
 import 'package:flutter/scheduler.dart';
+import 'package:flutter_animation/utils/responsive.dart';
 
 class HomePage extends StatefulWidget {
   @override
@@ -90,7 +91,7 @@ class _LeftWidgetState extends State<LeftWidget> with TickerProviderStateMixin {
             top: animationOffset.dy,
             left: animationOffset.dx,
             child: CustomPaint(
-              painter: CheckPointPainter(Offset(10, 0)),
+              painter: CheckPointPainter(Offset(5, 10)),
             ),
           )
         ],
@@ -191,7 +192,7 @@ class CheckPointPainter extends CustomPainter {
     double startAngle = -math.pi / 2;
     double sweepAngle = math.pi;
 
-    paint.color = Color(0xffED305A);
+    paint.color = Colors.grey;
 
     canvas.drawArc(
         Rect.fromCircle(center: Offset(offset.dx, offset.dy), radius: radius),
@@ -200,7 +201,7 @@ class CheckPointPainter extends CustomPainter {
         false,
         paint);
 
-    paint.color = Color(0xff98162d);
+    paint.color = Colors.white;
     canvas.drawCircle(
         Offset(offset.dx - pointRadius / 2, offset.dy - pointRadius / 2),
         pointRadius,
@@ -213,28 +214,7 @@ class CheckPointPainter extends CustomPainter {
   }
 }
 
-class VerticalText extends StatelessWidget {
-  String name;
-  bool checked;
-  GlobalKey globalKey;
 
-  VerticalText(this.name, this.globalKey, this.checked);
-
-  @override
-  Widget build(BuildContext context) {
-    return RotatedBox(
-      key: globalKey,
-      quarterTurns: 3,
-      child: Text(
-        name,
-        style: TextStyle(
-          color: checked ? Color(0xff98162d) : Colors.white,
-          fontSize: 16,
-        ),
-      ),
-    );
-  }
-}
 
 class RightWidget extends StatefulWidget {
   @override
