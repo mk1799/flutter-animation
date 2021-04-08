@@ -33,7 +33,7 @@ class _DescriptionState extends State<Description> {
       // backgroundColor: bgColor,
       bottomNavigationBar: Container(
         color: HexColor("#228c60"),
-        height: getSize(70),
+        // height: getSize(70),
         child: Row(
           children: [
             Expanded(
@@ -51,7 +51,7 @@ class _DescriptionState extends State<Description> {
             Expanded(
               flex: 1,
               child: Container(
-                padding: EdgeInsets.all(getSize(30)),
+                padding: EdgeInsets.all(getSize(20)),
                 color: Colors.white,
                 child: Icon(
                   Icons.arrow_forward_ios_rounded,
@@ -165,7 +165,7 @@ class _DescriptionState extends State<Description> {
                   slideDirection: SlideDirection.Up,
                   separator: ":",
                   textStyle: TextStyle(
-                    fontSize: 20,
+                    fontSize: getSize(20),
                     fontWeight: FontWeight.bold,
                   ),
                   decoration: BoxDecoration(
