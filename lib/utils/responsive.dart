@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_animation/utils/style.dart';
 
 import '../main.dart';
 
@@ -32,4 +33,24 @@ class MathUtilities {
 
   static safeAreaBottomHeight(BuildContext context) =>
       MediaQuery.of(context).padding.bottom;
+}
+class VerticalText extends StatelessWidget {
+  String name;
+  bool checked;
+  GlobalKey globalKey;
+
+  VerticalText(this.name, this.globalKey, this.checked);
+
+  @override
+  Widget build(BuildContext context) {
+    return RotatedBox(
+      key: globalKey,
+      quarterTurns: 3,
+      child: Text(
+        name,
+        textAlign: TextAlign.left,
+        style: getRegularStyle().copyWith( color: checked ? darkFont : lightFont,fontWeight: FontWeight.w500)
+      ),
+    );
+  }
 }
