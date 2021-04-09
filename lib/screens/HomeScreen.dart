@@ -39,6 +39,21 @@ class _HomeScreenState extends State<HomeScreen> {
           value = v;
         });
       }),
+      Screen1("2", (v) {
+        setState(() {
+          value = v;
+        });
+      }),
+      Screen1("3", (v) {
+        setState(() {
+          value = v;
+        });
+      }),
+      Screen1("4", (v) {
+        setState(() {
+          value = v;
+        });
+      }),
       // Screen1("2"),
       // Screen1("3"),
       // Screen1("dat 4"),
