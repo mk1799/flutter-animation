@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_animation/Animation/animation_file.dart';
 import 'package:flutter_animation/screens/Description.dart';
 import 'package:flutter_animation/screens/clock/slide_countdown_clock.dart';
 import 'package:flutter_animation/screens/clock/slide_direction.dart';
@@ -15,7 +16,7 @@ class Screen1 extends StatefulWidget {
   _Screen1State createState() => _Screen1State();
 }
 
-class _Screen1State extends State<Screen1> {
+class _Screen1State extends State<Screen1> with SingleTickerProviderStateMixin {
   int cate = 0;
   List<CardModel> listOfCardModel = [];
   GlobalKey<ScaffoldState> _scaffoldKey = GlobalKey();
@@ -23,6 +24,8 @@ class _Screen1State extends State<Screen1> {
   @override
   void initState() {
     super.initState();
+
+    ///Prepare datasource
     for (int i = 0; i < 10; i++) {
       CardModel cardModel = CardModel();
       cardModel.lable = "Hello beautiful ${i + 1}";
@@ -88,10 +91,16 @@ class _Screen1State extends State<Screen1> {
           child: Column(
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
-              Text(
-                "Discover",
-                textAlign: TextAlign.left,
-                style: getBoldStyle().copyWith(fontSize: getFontSize(30)),
+              AnimatedDefaultTextStyle(
+                child: Text(
+                  "Discover",
+                  textAlign: TextAlign.left,
+                ),
+                duration: Duration(milliseconds: 1000),
+                style: getBoldStyle().copyWith(
+                  fontSize: getFontSize(30),
+                ),
+                curve: Curves.elasticOut,
               ),
               SizedBox(
                 height: getSize(30),
@@ -133,13 +142,16 @@ class _Screen1State extends State<Screen1> {
           ),
         ),
         Expanded(
-          child: ListView.builder(
-            padding: EdgeInsets.only(top: getSize(20), left: getSize(20)),
-            shrinkWrap: true,
-            itemCount: listOfCardModel.length,
-            itemBuilder: (BuildContext context, int index) {
-              return getMainListViewItem(listOfCardModel[index]);
-            },
+          child: Padding(
+            padding: EdgeInsets.only(top:getSize(20)),
+            child: ListView.builder(
+              padding: EdgeInsets.only(top: getSize(20), left: getSize(20)),
+              shrinkWrap: true,
+              itemCount: listOfCardModel.length,
+              itemBuilder: (BuildContext context, int index) {
+                return getMainListViewItem(listOfCardModel[index]);
+              },
+            ),
           ),
         ),
       ],
@@ -163,26 +175,35 @@ class _Screen1State extends State<Screen1> {
         child: Container(
           child: Stack(
             children: [
-              Material(
-                elevation: 15.0,
-                child: Container(
-                  // color: Colors.white,
-                  width: getSize(230),
-                  height: getSize(280),
-                  child: Padding(
-                    padding: EdgeInsets.all(getSize(5)),
-                    child: Image.asset(
-                      "asset/bg.jpg",
-                      fit: BoxFit.fill,
+              ShowUp(
+                delay: 500,
+                x: 0,
+                y: 2,
+                child: Material(
+                  elevation: 15.0,
+                  child: Container(
+                    // color: Colors.white,
+                    width: getSize(230),
+                    height: getSize(280),
+                    child: Padding(
+                      padding: EdgeInsets.all(getSize(5)),
+                      child: Image.asset(
+                        "asset/bg.jpg",
+                        fit: BoxFit.fill,
+                      ),
                     ),
                   ),
                 ),
               ),
               Positioned(
-                top: getSize(40),
-                right: 0,
-                child: getCard(cardModel),
-              )
+                  top: getSize(40),
+                  right: 0,
+                  child: ShowUp(
+                    child: getCard(cardModel),
+                    delay: 500,
+                    x: 2,
+                    y: 0,
+                  ))
             ],
           ),
         ),

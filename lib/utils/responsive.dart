@@ -7,12 +7,14 @@ final GlobalKey<NavigatorState> globalKey = GlobalKey<NavigatorState>();
 
 dynamic getSize(double px) {
   return px *
-      ((MathUtilities.screenWidth(globalKey.currentState.overlay.context)) / 414);
+      ((MathUtilities.screenWidth(globalKey.currentState.overlay.context)) /
+          414);
 }
 
 dynamic getFontSize(double px) {
   return px *
-          (MathUtilities.screenWidth(globalKey.currentState.overlay.context) / 414) +
+          (MathUtilities.screenWidth(globalKey.currentState.overlay.context) /
+              414) +
       2;
 }
 
@@ -34,6 +36,7 @@ class MathUtilities {
   static safeAreaBottomHeight(BuildContext context) =>
       MediaQuery.of(context).padding.bottom;
 }
+
 class VerticalText extends StatelessWidget {
   String name;
   bool checked;
@@ -46,10 +49,23 @@ class VerticalText extends StatelessWidget {
     return RotatedBox(
       key: globalKey,
       quarterTurns: 3,
-      child: Text(
-        name,
-        textAlign: TextAlign.left,
-        style: getRegularStyle().copyWith( color: checked ? darkFont : lightFont,fontWeight: FontWeight.w500)
+      child: AnimatedDefaultTextStyle(
+        curve: Curves.slowMiddle,
+        duration: Duration(milliseconds: 500),
+        style: !checked
+            ? getRegularStyle().copyWith(
+                color: lightFont,
+                fontWeight: FontWeight.w500,
+              )
+            : getRegularStyle().copyWith(
+                color: darkFont,
+                fontSize: getSize(16),
+                fontWeight: FontWeight.w800,
+              ),
+        child: Text(
+          name,
+          textAlign: TextAlign.left,
+        ),
       ),
     );
   }
