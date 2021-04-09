@@ -11,7 +11,8 @@ import 'package:hexcolor/hexcolor.dart';
 
 class Screen1 extends StatefulWidget {
   final String screencount;
-  Screen1(this.screencount);
+  Function fun;
+  Screen1(this.screencount, this.fun);
   @override
   _Screen1State createState() => _Screen1State();
 }
@@ -20,6 +21,8 @@ class _Screen1State extends State<Screen1> with SingleTickerProviderStateMixin {
   int cate = 0;
   List<CardModel> listOfCardModel = [];
   GlobalKey<ScaffoldState> _scaffoldKey = GlobalKey();
+
+  double value = 0;
 
   @override
   void initState() {
@@ -50,25 +53,39 @@ class _Screen1State extends State<Screen1> with SingleTickerProviderStateMixin {
                       color: Colors.grey.withOpacity(0.5), width: 1))),
           child: Row(
             children: [
-              Container(
-                width: getSize(40),
-                height: getSize(40),
-                decoration: BoxDecoration(
-                  boxShadow: [
-                    new BoxShadow(
-                      // color: ColorConstants.getShadowColor,
-                      color: Colors.grey.withOpacity(0.7),
-                      offset: Offset(2, 2),
-                      blurRadius: 5.0,
-                      spreadRadius: 2.0,
+              value == 0
+                  ? Container(
+                      width: getSize(40),
+                      height: getSize(40),
+                      decoration: BoxDecoration(
+                        boxShadow: [
+                          new BoxShadow(
+                            // color: ColorConstants.getShadowColor,
+                            color: Colors.grey.withOpacity(0.7),
+                            offset: Offset(2, 2),
+                            blurRadius: 5.0,
+                            spreadRadius: 2.0,
+                          ),
+                        ],
+                        shape: BoxShape.circle,
+                        image: DecorationImage(
+                          image: AssetImage("asset/profile.jpg"),
+                        ),
+                      ),
+                    )
+                  : GestureDetector(
+                      onTap: () {
+                        setState(() {
+                          value == 0 ? value = 1 : value = 0;
+                          widget.fun(value);
+                        });
+                      },
+                      child: Icon(
+                        Icons.menu_outlined,
+                        color: lightFont,
+                        size: getSize(35),
+                      ),
                     ),
-                  ],
-                  shape: BoxShape.circle,
-                  image: DecorationImage(
-                    image: AssetImage("asset/profile.jpg"),
-                  ),
-                ),
-              ),
               Expanded(child: Container()),
               Icon(
                 Icons.search,
@@ -78,10 +95,18 @@ class _Screen1State extends State<Screen1> with SingleTickerProviderStateMixin {
               SizedBox(
                 width: getSize(10),
               ),
-              Icon(
-                Icons.menu_outlined,
-                color: lightFont,
-                size: getSize(35),
+              GestureDetector(
+                onTap: () {
+                  setState(() {
+                    value == 0 ? value = 1 : value = 0;
+                    widget.fun(value);
+                  });
+                },
+                child: Icon(
+                  Icons.menu_outlined,
+                  color: lightFont,
+                  size: getSize(35),
+                ),
               ),
             ],
           ),
@@ -143,7 +168,7 @@ class _Screen1State extends State<Screen1> with SingleTickerProviderStateMixin {
         ),
         Expanded(
           child: Padding(
-            padding: EdgeInsets.only(top:getSize(20)),
+            padding: EdgeInsets.only(top: getSize(20)),
             child: ListView.builder(
               padding: EdgeInsets.only(top: getSize(20), left: getSize(20)),
               shrinkWrap: true,
