@@ -1,3 +1,4 @@
+import 'package:animated_text_kit/animated_text_kit.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_animation/Animation/animation_file.dart';
 import 'package:flutter_animation/screens/Description.dart';
@@ -116,6 +117,25 @@ class _Screen1State extends State<Screen1> with SingleTickerProviderStateMixin {
           child: Column(
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
+              // AnimatedTextKit(
+              //   animatedTexts: [
+              //     FadeAnimatedText(
+              //       'Fade First',
+              //       textStyle:
+              //           TextStyle(fontSize: 32.0, fontWeight: FontWeight.bold),
+              //     ),
+              //     ScaleAnimatedText(
+              //       'Then Scale',
+              //       textStyle:
+              //           TextStyle(fontSize: 70.0, fontFamily: 'Canterbury'),
+              //     ),
+              //   ],
+              // ),
+
+            
+              // Text("Discover",style: getBoldStyle().copyWith(
+              //     fontSize: getFontSize(30),
+              //   ),),
               AnimatedDefaultTextStyle(
                 child: Text(
                   "Discover",
