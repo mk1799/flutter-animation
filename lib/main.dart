@@ -1,7 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_animation/screens/Description.dart';
 import 'package:flutter_animation/screens/HomeScreen.dart';
-import 'package:flutter_animation/screens/test.dart';
 import 'package:flutter_animation/utils/responsive.dart';
 
 void main() {
@@ -15,7 +13,7 @@ class MyApp extends StatelessWidget {
     return MaterialApp(
       
       debugShowCheckedModeBanner: false,
-      title: "Flutter Animation",
+      title: "Flutter Animation",   
       navigatorKey: globalKey,
       home: HomeScreen(),
     );

@@ -1,7 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/scheduler.dart';
 import 'package:flutter_animation/screens/screen1.dart';
-import 'package:flutter_animation/screens/test.dart';
 import 'package:flutter_animation/utils/responsive.dart';
 import 'package:flutter_animation/utils/style.dart';
 
