@@ -1,7 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_animation/utils/style.dart';
 
-import '../main.dart';
 
 final GlobalKey<NavigatorState> globalKey = GlobalKey<NavigatorState>();
 
