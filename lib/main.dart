@@ -10,12 +10,17 @@ class MyApp extends StatelessWidget {
   final GlobalKey<NavigatorState> key = GlobalKey<NavigatorState>();
   @override
   Widget build(BuildContext context) {
-    return MaterialApp(
-      
-      debugShowCheckedModeBanner: false,
-      title: "Flutter Animation",   
-      navigatorKey: globalKey,
-      home: HomeScreen(),
+    return NotificationListener<OverscrollIndicatorNotification>(
+      onNotification: (overScroll) {
+        overScroll.disallowGlow();
+        return true;
+      },
+      child: MaterialApp(
+        debugShowCheckedModeBanner: false,
+        title: "Flutter Animation",
+        navigatorKey: globalKey,
+        home: HomeScreen(),
+      ),
     );
   }
 }
