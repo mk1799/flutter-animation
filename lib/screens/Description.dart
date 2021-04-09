@@ -68,11 +68,14 @@ class _DescriptionState extends State<Description> {
         children: [
           getBackGroundImg(),
           Container(
-            margin: EdgeInsets.only(top: getSize(180), right: getSize(50)),
+            margin: EdgeInsets.only(top: getSize(180), right: getSize(0)),
             child: Column(
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
-                getCard(),
+                Container(
+                   margin: EdgeInsets.only(right: getSize(50)),
+                  child:  getCard(),
+                ),
                 SizedBox(
                   height: getSize(20),
                 ),
@@ -91,7 +94,7 @@ class _DescriptionState extends State<Description> {
       child: Container(
         width: MediaQuery.of(context).size.width,
         padding: EdgeInsets.symmetric(
-            vertical: getSize(15), horizontal: getSize(30)),
+            vertical: getSize(10), horizontal: getSize(20)),
         child: Column(
           mainAxisSize: MainAxisSize.min,
           crossAxisAlignment: CrossAxisAlignment.start,
@@ -102,10 +105,10 @@ class _DescriptionState extends State<Description> {
                   .copyWith(fontSize: getSize(20), fontWeight: FontWeight.w400),
             ),
             SizedBox(
-              height: getSize(20),
+              height: getSize(10),
             ),
             Text(
-              "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book Lorem Ipsum is simply dummy text of the printing and typesetting industry.",
+              "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book Lorem Ipsum is simply dummy text.",
               textAlign: TextAlign.justify,
               style: getRegularStyle().copyWith(fontSize: getSize(14)),
             ),

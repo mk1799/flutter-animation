@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_animation/screens/HomeScreen.dart';
+import 'package:flutter_animation/screens/splash_screen.dart';
 import 'package:flutter_animation/utils/responsive.dart';
 
 void main() {
@@ -19,7 +20,7 @@ class MyApp extends StatelessWidget {
         debugShowCheckedModeBanner: false,
         title: "Flutter Animation",
         navigatorKey: globalKey,
-        home: HomeScreen(),
+        home: SplashScreen(),
       ),
     );
   }
